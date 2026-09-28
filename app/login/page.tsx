@@ -1,0 +1,2 @@
+import { login } from './actions';
+export default function LoginPage() { return <main className="admin-login"><div className="admin-login-card"><p className="eyebrow">ART HILDAMAR / PRIVADO</p><h1>Administración</h1><p>Acceso exclusivo para la cuenta administradora.</p><form action={login} className="admin-form"><label>Correo electrónico<input name="email" type="email" autoComplete="email" required /></label><label>Contraseña<input name="password" type="password" autoComplete="current-password" required /></label><button type="submit">Entrar ↗</button></form></div></main>; }
