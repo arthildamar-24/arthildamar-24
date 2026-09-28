@@ -4,56 +4,181 @@ import { ArtworkCard } from "@/components/artwork-card";
 
 export default async function Home() {
   const artworks = await getArtworks();
+  const heroArtwork = artworks[0];
 
   return (
-    <main>
-      <section className="hero">
-        <div className="hero-copy">
-          <p className="eyebrow">ARTE ABSTRACTO · RESINA · PIEZAS ÚNICAS</p>
-          <h1>El arte<br /><em>fluye.</em></h1>
-          <p className="hero-text">
-            Obras construidas con resina, pigmento, luz y movimiento.
-            Cada pieza encuentra su propio camino.
-          </p>
-          <Link className="button" href="/obras">Explorar la colección <span>↗</span></Link>
-        </div>
-        <div className="hero-art">
-          <div className="hero-glow" />
-          <div className="hero-orbit orbit-one" />
-          <div className="hero-orbit orbit-two" />
-          <div className="hero-signature">Hildamar / 2026</div>
-        </div>
-      </section>
+    <main className="home">
 
-      <section className="manifesto">
-        <p className="eyebrow">01 / LA MATERIA</p>
-        <div>
-          <h2>No hay dos corrientes iguales.</h2>
-          <p>
-            La resina nunca repite exactamente su recorrido. Por eso cada obra
-            conserva algo que no puede fabricarse dos veces: su propio movimiento.
-          </p>
-        </div>
-      </section>
+      {/* HERO */}
+      <section className="hero-editorial">
 
-      <section className="collection">
-        <div className="section-head">
+        <div className="hero-editorial-copy">
           <div>
-            <p className="eyebrow">02 / OBRAS</p>
-            <h2>Selección Hildamar</h2>
+            <p className="eyebrow">01 / ART HILDAMAR</p>
+
+            <h1>
+              El arte
+              <br />
+              <em>fluye.</em>
+            </h1>
           </div>
-          <Link href="/obras" className="text-link">Ver todas →</Link>
+
+          <div className="hero-editorial-bottom">
+            <p>
+              Obras originales construidas con resina,
+              pigmento, luz y movimiento.
+            </p>
+
+            <Link href="/obras" className="text-link">
+              Explorar obras ↗
+            </Link>
+          </div>
         </div>
-        <div className="art-grid">
-          {artworks.map((artwork) => <ArtworkCard key={artwork.id} artwork={artwork} />)}
+
+        <div className="hero-editorial-art">
+          {heroArtwork?.image_url ? (
+            <img
+              src={heroArtwork.image_url}
+              alt={heroArtwork.title}
+            />
+          ) : (
+            <div className="hero-empty">
+              <span>ART HILDAMAR</span>
+              <small>PRÓXIMAMENTE</small>
+            </div>
+          )}
+
+          <div className="hero-art-caption">
+            <span>
+              {heroArtwork?.collection ?? "OBRA ORIGINAL"}
+            </span>
+
+            <strong>
+              {heroArtwork?.title ?? "Hildamar"}
+            </strong>
+
+            <span>
+              {heroArtwork?.year ?? "2026"}
+            </span>
+          </div>
         </div>
+
       </section>
 
-      <section className="process-teaser">
-        <p className="eyebrow">03 / EL PROCESO</p>
-        <h2>La belleza<br /><em>no se repite.</em></h2>
-        <Link className="button button-light" href="/proceso">Ver cómo nace una obra <span>↗</span></Link>
+
+      {/* MANIFIESTO */}
+      <section className="manifesto-editorial">
+
+        <div className="manifesto-number">
+          02
+        </div>
+
+        <div className="manifesto-label">
+          LA MATERIA
+        </div>
+
+        <div className="manifesto-content">
+          <h2>
+            No hay dos
+            <br />
+            corrientes iguales.
+          </h2>
+
+          <p>
+            La resina nunca repite exactamente su recorrido.
+            Cada capa, cada pigmento y cada movimiento de la materia
+            transforma la obra en una pieza irrepetible.
+          </p>
+        </div>
+
       </section>
+
+
+      {/* OBRAS */}
+      <section className="collection-editorial">
+
+        <div className="collection-intro">
+          <div>
+            <p className="eyebrow">03 / OBRAS</p>
+
+            <h2>
+              Selección
+              <br />
+              Hildamar.
+            </h2>
+          </div>
+
+          <Link href="/obras" className="text-link">
+            Ver colección completa ↗
+          </Link>
+        </div>
+
+
+        <div className="art-grid editorial-grid">
+          {artworks.slice(0, 3).map((artwork) => (
+            <ArtworkCard
+              key={artwork.id}
+              artwork={artwork}
+            />
+          ))}
+        </div>
+
+      </section>
+
+
+      {/* PROCESO */}
+      <section className="process-editorial">
+
+        <div className="process-top">
+          <span>04 / EL PROCESO</span>
+          <span>RESINA · PIGMENTO · TIEMPO</span>
+        </div>
+
+        <div className="process-main">
+          <h2>
+            La belleza
+            <br />
+            <em>no se repite.</em>
+          </h2>
+
+          <div>
+            <p>
+              Cada obra nace de un proceso que no puede
+              reproducirse exactamente. La materia decide,
+              la artista acompaña.
+            </p>
+
+            <Link
+              href="/proceso"
+              className="button button-light"
+            >
+              Conocer el proceso ↗
+            </Link>
+          </div>
+        </div>
+
+      </section>
+
+
+      {/* CIERRE */}
+      <section className="home-closing">
+
+        <p className="eyebrow">
+          ART HILDAMAR
+        </p>
+
+        <h2>
+          Arte líquido.
+          <br />
+          <em>Piezas irrepetibles.</em>
+        </h2>
+
+        <Link href="/contacto" className="text-link">
+          Hablar sobre una obra ↗
+        </Link>
+
+      </section>
+
     </main>
   );
 }
