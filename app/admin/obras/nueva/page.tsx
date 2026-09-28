@@ -19,6 +19,7 @@ export default function NuevaObraPage() {
       </div>
 
       <form action={createArtwork} className="admin-form">
+        {/* 01 — IDENTIDAD */}
         <div className="admin-form-section">
           <div>
             <span className="admin-eyebrow">01</span>
@@ -66,6 +67,7 @@ export default function NuevaObraPage() {
           </div>
         </div>
 
+        {/* 02 — LA OBRA */}
         <div className="admin-form-section">
           <div>
             <span className="admin-eyebrow">02</span>
@@ -90,28 +92,32 @@ export default function NuevaObraPage() {
                 placeholder="Ej. 100 × 80 cm"
               />
             </label>
-                    </div>
+          </div>
+
           <div className="admin-upload">
-  <label className="admin-upload-label">
-    <span className="admin-eyebrow">Fotografía principal</span>
+            <label className="admin-upload-label">
+              <span className="admin-eyebrow">
+                Fotografía principal
+              </span>
 
-    <span className="admin-upload-title">
-      Selecciona la imagen de la obra
-    </span>
+              <span className="admin-upload-title">
+                Selecciona la imagen de la obra
+              </span>
 
-    <span className="admin-upload-help">
-      JPG, PNG o WebP · máximo 10 MB
-    </span>
+              <span className="admin-upload-help">
+                JPG, PNG o WebP · máximo 10 MB
+              </span>
 
-    <input
-      name="image"
-      type="file"
-      accept="image/jpeg,image/png,image/webp"
-    />
-  </label>
-</div>
-      
+              <input
+                name="image"
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+              />
+            </label>
+          </div>
+        </div>
 
+        {/* 03 — VENTA */}
         <div className="admin-form-section">
           <div>
             <span className="admin-eyebrow">03</span>
@@ -149,6 +155,7 @@ export default function NuevaObraPage() {
           </div>
         </div>
 
+        {/* 04 — PUBLICACIÓN */}
         <div className="admin-form-section">
           <div>
             <span className="admin-eyebrow">04</span>
@@ -162,6 +169,7 @@ export default function NuevaObraPage() {
                 name="published"
                 defaultChecked
               />
+
               <span>
                 <strong>Publicar obra</strong>
                 <small>
@@ -175,6 +183,7 @@ export default function NuevaObraPage() {
                 type="checkbox"
                 name="featured"
               />
+
               <span>
                 <strong>Obra destacada</strong>
                 <small>
@@ -185,12 +194,19 @@ export default function NuevaObraPage() {
           </div>
         </div>
 
+        {/* ACCIONES */}
         <div className="admin-form-actions">
-          <Link href="/admin/obras" className="admin-secondary">
+          <Link
+            href="/admin/obras"
+            className="admin-secondary"
+          >
             Cancelar
           </Link>
 
-          <button type="submit" className="admin-primary">
+          <button
+            type="submit"
+            className="admin-primary"
+          >
             Crear obra →
           </button>
         </div>
