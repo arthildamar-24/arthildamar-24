@@ -90,8 +90,27 @@ export default function NuevaObraPage() {
                 placeholder="Ej. 100 × 80 cm"
               />
             </label>
-          </div>
-        </div>
+                    </div>
+          <div className="admin-upload">
+  <label className="admin-upload-label">
+    <span className="admin-eyebrow">Fotografía principal</span>
+
+    <span className="admin-upload-title">
+      Selecciona la imagen de la obra
+    </span>
+
+    <span className="admin-upload-help">
+      JPG, PNG o WebP · máximo 10 MB
+    </span>
+
+    <input
+      name="image"
+      type="file"
+      accept="image/jpeg,image/png,image/webp"
+    />
+  </label>
+</div>
+      
 
         <div className="admin-form-section">
           <div>
